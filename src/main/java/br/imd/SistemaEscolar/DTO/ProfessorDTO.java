@@ -5,8 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AlunoDTO {
+public class ProfessorDTO {
         String nome;
         String cpf;
         String dataNascimento;
+
 }
