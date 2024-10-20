@@ -21,6 +21,6 @@ public class AlunoEntity {
     String nome;
     @Column(name = "cpf")
     String cpf;
-    @Column(name = "nascimento")
+    @Column(name = "dataNascimento")
     String dataNascimento;
 }

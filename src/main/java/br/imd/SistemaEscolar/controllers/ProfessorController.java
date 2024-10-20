@@ -4,16 +4,17 @@ package br.imd.SistemaEscolar.controllers;
 import br.imd.SistemaEscolar.DTO.ProfessorDTO;
 import br.imd.SistemaEscolar.model.ProfessorEntity;
 import br.imd.SistemaEscolar.repository.ProfessorRepository;
-import br.imd.SistemaEscolar.service.AlunoService;
 import br.imd.SistemaEscolar.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("professor")
+@RequestMapping("/professor")
 public class ProfessorController {
     @Autowired
     private ProfessorRepository professorRepository;
@@ -39,5 +40,12 @@ public class ProfessorController {
         return ResponseEntity.ok(professores);
     }
 
+    @GetMapping("web")
+    public ModelAndView listarProfessores(Model model){
+        List<ProfessorEntity> professores = professorService.listarTodos();
+        model.addAttribute("professores", professores);
+        ModelAndView mv = new ModelAndView("list-aluno");
+        return mv;
+    }
 
 }

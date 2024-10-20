@@ -23,7 +23,13 @@ public class AlunoService {
     }
 
     public List<AlunoEntity> listarTodos(){
+        List<AlunoEntity> alunos = alunoRepository.findAll();
+
+
         return alunoRepository.findAll();
     }
+
+
+
 
 }

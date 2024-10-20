@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Alunos</title>
+</head>
+<body>
+<h1>Lista de Alunos</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de Nascimento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Usando Thymeleaf para iterar sobre a lista de alunos -->
+    <tr th:each="aluno : ${alunos}">
+        <td th:text="${aluno.id}">ID</td>
+        <td th:text="${aluno.nome}">Nome</td>
+        <td th:text="${aluno.cpf}">CPF</td>
+        <td th:text="${aluno.dataNascimento}">Data de Nascimento</td>
+    </tr>
+    </tbody>
+</table>
+<h1>Lista de Professores</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de Nascimento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Usando Thymeleaf para iterar sobre a lista de alunos -->
+    <tr th:each="professor : ${professores}">
+        <td th:text="${professor.id}">ID</td>
+        <td th:text="${professor.nome}">Nome</td>
+        <td th:text="${professor.cpf}">CPF</td>
+        <td th:text="${professor.dataNascimento}">Data de Nascimento</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

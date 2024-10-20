@@ -3,9 +3,11 @@ package br.imd.SistemaEscolar.controllers;
 
 import br.imd.SistemaEscolar.DTO.AlunoDTO;
 import br.imd.SistemaEscolar.model.AlunoEntity;
+import br.imd.SistemaEscolar.repository.AlunoRepository;
 import br.imd.SistemaEscolar.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,9 +17,12 @@ import java.util.List;
 @RequestMapping("/aluno")
 public class AlunoController {
 
+    @Autowired
+    private AlunoRepository alunoRepository;
+
     @GetMapping("/aluno1")
     public String olaAluno1(){
-        return "OLa Aluno1";
+        return "aluno1";
     }
 
     @GetMapping("/aluno2")
@@ -63,7 +68,15 @@ public class AlunoController {
     public ResponseEntity<List<AlunoEntity>> listarAlunos(){
         List<AlunoEntity> alunos = alunoService.listarTodos();
         return ResponseEntity.ok(alunos);
+
     }
 
+    @GetMapping("web")
+    public ModelAndView listarAlunos(Model model) {
+        List<AlunoEntity> alunos = alunoService.listarTodos();
+        model.addAttribute("alunos", alunos);
+        ModelAndView teste = new ModelAndView("list-aluno");
+        return teste;
+    }
 
 }

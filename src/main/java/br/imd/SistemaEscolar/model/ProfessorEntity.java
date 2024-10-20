@@ -20,6 +20,6 @@ public class ProfessorEntity {
     String nome;
     @Column(name = "Cpf")
     String cpf;
-    @Column(name = "Nascimento")
+    @Column(name = "dataNascimento")
     String dataNascimento;
 }
