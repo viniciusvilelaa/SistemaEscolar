@@ -5,6 +5,7 @@ import br.imd.SistemaEscolar.DTO.AlunoDTO;
 import br.imd.SistemaEscolar.model.AlunoEntity;
 import br.imd.SistemaEscolar.repository.AlunoRepository;
 import br.imd.SistemaEscolar.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -58,8 +59,8 @@ public class AlunoController {
     @Autowired
     private AlunoService alunoService;
 
-    @PostMapping("api/aluno")
-    public ResponseEntity<AlunoEntity> criarAluno(@RequestBody AlunoDTO alunoDTO){
+    @PostMapping("api/criarAluno")
+    public ResponseEntity<AlunoEntity> criarAluno(@RequestBody @Valid AlunoDTO alunoDTO){
         AlunoEntity novoAluno = alunoService.salvarAluno(alunoDTO);
         return ResponseEntity.ok(novoAluno);
     }

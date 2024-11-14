@@ -5,6 +5,7 @@ import br.imd.SistemaEscolar.DTO.ProfessorDTO;
 import br.imd.SistemaEscolar.model.ProfessorEntity;
 import br.imd.SistemaEscolar.repository.ProfessorRepository;
 import br.imd.SistemaEscolar.service.ProfessorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -28,8 +29,8 @@ public class ProfessorController {
     @Autowired
     private ProfessorService professorService;
 
-    @PostMapping("api/professor")
-    public ResponseEntity<ProfessorEntity> criarAluno(@RequestBody ProfessorDTO professorDTO){
+    @PostMapping("api/criarProfessor")
+    public ResponseEntity<ProfessorEntity> criarProfessor(@RequestBody @Valid ProfessorDTO professorDTO){
         ProfessorEntity novoProfessor = professorService.salvarProfessor(professorDTO);
         return ResponseEntity.ok(novoProfessor);
     }
