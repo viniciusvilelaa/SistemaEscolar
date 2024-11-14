@@ -22,14 +22,9 @@ public class TurmaEntity {
     String nome;
 
     @Column(name = "Turno")
-    @Enumerated(EnumType.STRING)
-    Turno turno;
-
-    public enum Turno {
-        MASCULINO, FEMININO
-    }
+    String turno;
 
     @Column(name = "Docente")
-    Long docente;
+    String id_Professor;
 
 }

@@ -16,6 +16,6 @@ public class TurmaDTO {
     String turno;
 
     @NotBlank
-    Long id_professor;
+    String id_professor;
 
 }
